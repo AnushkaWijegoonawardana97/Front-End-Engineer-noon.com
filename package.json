@@ -23,6 +23,5 @@
     "express-validator": "^7.0.1",
     "gravatar": "^1.8.2",
     "mongoose": "^7.4.2"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
