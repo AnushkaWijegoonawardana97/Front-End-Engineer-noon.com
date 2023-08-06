@@ -1,0 +1,16 @@
+{
+  "name": "front-end-engineer-noon.com",
+  "version": "1.0.0",
+  "description": "noon front end engineer technical test",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server",
+    "server": "nodemon server"
+  },
+  "author": "Anushka Wijegoonawardanan",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.0.1"
+  }
+}
