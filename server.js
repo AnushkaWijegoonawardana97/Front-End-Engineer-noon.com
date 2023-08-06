@@ -6,4 +6,4 @@ app.get("/", (request, response) => response.send("API is running..."));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server Started on port ${PORT}...`));
+app.listen(PORT, () => console.log("Server Started on port "));
