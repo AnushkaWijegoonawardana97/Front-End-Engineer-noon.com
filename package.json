@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "node server",
-    "server": "nodemon server"
+    "install": "concurrently \"npm install\" \"npm install --prefix client\"",
+    "server": "nodemon server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Anushka Wijegoonawardanan",
   "license": "MIT",
@@ -19,5 +23,6 @@
     "express-validator": "^7.0.1",
     "gravatar": "^1.8.2",
     "mongoose": "^7.4.2"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
