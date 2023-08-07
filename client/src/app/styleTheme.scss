@@ -5,6 +5,39 @@ $theme-color-s: #17224D;
 $theme-color-l: #F5FAFA;
 $theme-color-o: #17E9E1;
 
+// Responisve Media Query mixins
+@mixin smscreen {
+  @media screen and (max-width: 520px) {
+    html {
+      @content;
+    }
+  }
+}
+
+@mixin mdscreen {
+  @media screen and (max-width: 768px) {
+    html {
+      @content;
+    }
+  }
+}
+
+@mixin lgscreen {
+  @media screen and (min-width: 769px) and (max-width: 1080px) {
+    html {
+      @content;
+    }
+  }
+}
+
+@mixin xlscreen {
+  @media screen and (min-width: 1081px) {
+    html {
+      @content;
+    }
+  }
+}
+
 // Default Styles Resetings
 * {
   margin: 0;
@@ -36,7 +69,7 @@ body {
   padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 
   .header_logo {
     img {
@@ -52,6 +85,7 @@ body {
   grid-gap: 1.5rem;
   padding: 1rem;
   margin-bottom: 5rem;
+
 
   .post_item {
     width: auto;
@@ -127,6 +161,18 @@ body {
       margin-bottom: 0.75rem;
     }
   }
+}
+
+@include xlscreen {
+  .post_list {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 535px;
+
+    .post_item {
+      height: 100%;
+    }
+  }
+
 }
 
 // Fixed Footer - Mobile
