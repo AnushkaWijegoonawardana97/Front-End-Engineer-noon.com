@@ -10,14 +10,22 @@ const GridItem: FunctionComponent<any> = ({ post }) => {
     const onLikeButtonClick = async (id: any) => {
         console.log(id)
 
-        const response = await fetch(`http://localhost:5000/api/favourite/like/${id}`, {
+        // const response = await fetch(`http://localhost:5000/api/favourite/like/${id}`, {
+        //     method: 'PUT',
+        //     mode: 'cors',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Access-Control-Allow-Origin': 'http://localhost:3000'
+        //     },
+        // })
+
+        const response = await fetch('http://localhost:5000/api/favourite/like/${id}', {
             method: 'PUT',
-            mode: 'cors',
             headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:3000'
+                'Content-Type': 'application/json'
             },
-        })
+            body: ''
+        });
 
         console.log(response)
     }

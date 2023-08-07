@@ -6,8 +6,8 @@ const app = express();
 connectDB();
 app.get("/", (request, response) => response.send("API is running..."));
 
-app.use("/api/posts", cors(corsOptions), require("./routes/api/posts"));
-app.use("/api/favourite", cors(corsOptions), require("./routes/api/favourite"));
+app.use("/api/posts", require("./routes/api/posts")); 
+app.use("/api/favourite", require("./routes/api/favourite"));
 
 // if (process.env.NODE_ENV === "production") {
 //   // Set static folder

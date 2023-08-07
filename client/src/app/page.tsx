@@ -20,7 +20,7 @@ const Home: React.FC = async () => {
 
   return (
     <>
-      <Header />
+      <Header title={'Latest Posts'} />
       <GridContainer Posts={posts} />
     </>
   )

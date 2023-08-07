@@ -36,11 +36,12 @@ body {
   padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 
   .header_logo {
     img {
       height: 40px;
+      width: auto;
     }
   }
 }
@@ -137,10 +138,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: red;
-  color: white;
+  background-color: $theme-color-l;
+  color: $theme-color-s;
 
   .footer_link {
     padding: 1rem;
+
+    img {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
   }
 }

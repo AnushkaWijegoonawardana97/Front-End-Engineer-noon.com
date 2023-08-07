@@ -1,13 +1,13 @@
 export const FOOTER_MENU = [{
     tilte: 'home',
-    icon: '',
+    icon: 'homeIcon',
     link: '/'
 }, {
     tilte: 'favourite',
-    icon: '',
+    icon: 'favouriteIcon',
     link: '/favourite'
 }, {
     tilte: 'create',
-    icon: '',
+    icon: 'createIcon',
     link: '/create'
 }]
