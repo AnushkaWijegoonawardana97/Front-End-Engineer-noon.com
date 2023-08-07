@@ -1,33 +1,35 @@
 'use client';
-import React, { FunctionComponent } from 'react'
-import PropTypes from 'prop-types'
-import Image from 'next/image'
-import noonLogo from "../src/testImage.jpg"
-import heartIcon from "../src/heart-solid.svg"
-import likeIcon from "../src/thumbs-up-solid.svg"
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { FunctionComponent } from 'react';
+import heartIcon from "../src/heart-solid.svg";
+import noonLogo from "../src/testImage.jpg";
+import likeIcon from "../src/thumbs-up-solid.svg";
 
 const GridItem: FunctionComponent<any> = ({ post }) => {
     const onLikeButtonClick = async (id: any) => {
         console.log(id)
 
-        // const response = await fetch(`http://localhost:5000/api/favourite/like/${id}`, {
-        //     method: 'PUT',
-        //     mode: 'cors',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Access-Control-Allow-Origin': 'http://localhost:3000'
-        //     },
-        // })
-
-        const response = await fetch('http://localhost:5000/api/favourite/like/${id}', {
+        const response = await fetch(`http://localhost:5000/api/favourite/like/${id}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
-            },
-            body: ''
-        });
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:3000',
+                'Access-Control-Allow-Credentials': 'true'
 
+            },
+            body: JSON.stringify(''),
+        })
         console.log(response)
+
+        if (!response.ok) {
+            if (response.status === 403 || response.status === 401) {
+                // toast.error('No token included')
+                return
+            }
+            // toast.error('Something Went Wrong')
+        } else {
+        }
     }
 
     return (
@@ -48,7 +50,7 @@ const GridItem: FunctionComponent<any> = ({ post }) => {
                 </div>
             </div>
             <div className="post_content">
-                <div className="post_header">{post.likes} Likes</div>
+                <div className="post_header">{post.likes} Likes {post._id}</div>
                 <div className="post_title">{post.title.substring(0, 20)}...</div>
                 <div className="post_captions">{post.description}</div>
                 {/* <div className="post_comments">Lorem, ipsum dolor.</div> */}
