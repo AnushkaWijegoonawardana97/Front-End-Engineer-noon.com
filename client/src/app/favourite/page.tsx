@@ -5,7 +5,7 @@ import GridContainer from '../../../components/GridContainer'
 
 async function getFavouritePosts() {
     const response = await fetch('http://localhost:5000/api/favourite')
-    console.log(response)
+    // console.log(response)
 
     if (!response.ok) {
         throw new Error('Failed to fetch data')

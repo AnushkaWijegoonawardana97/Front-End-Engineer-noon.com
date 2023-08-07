@@ -6,7 +6,7 @@ import { PostsInterface } from './interface'
 
 async function getPosts() {
   const response = await fetch('http://localhost:5000/api/posts')
-  console.log(response)
+  // console.log(response)
 
   if (!response.ok) {
     throw new Error('Failed to fetch data')

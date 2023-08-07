@@ -1,15 +1,43 @@
+'use client';
 import React, { FunctionComponent } from 'react'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import noonLogo from "../src/testImage.jpg"
+import heartIcon from "../src/heart-solid.svg"
+import likeIcon from "../src/thumbs-up-solid.svg"
 
 const GridItem: FunctionComponent<any> = ({ post }) => {
+    const onLikeButtonClick = async (id: any) => {
+        console.log(id)
+
+        const response = await fetch(`http://localhost:5000/api/favourite/like/${id}`, {
+            method: 'PUT',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:3000'
+            },
+        })
+
+        console.log(response)
+    }
+
     return (
         <div className='post_item'>
             <Image src={noonLogo} alt="" />
             <div className="post_sticky_header">
-                <div className="post_user"></div>
-                <button className="post_fav_btn"></button>
+                <div className="post_user">
+                    <img src={post.avatar} />
+                    {post.author}
+                </div>
+                <div className="post_buttons">
+                    <div onClick={() => onLikeButtonClick(post._id)} id={post._id}>
+                        <Image src={likeIcon} alt="" />
+                    </div>
+                    <div>
+                        <Image src={heartIcon} alt="" />
+                    </div>
+                </div>
             </div>
             <div className="post_content">
                 <div className="post_header">{post.likes} Likes</div>
